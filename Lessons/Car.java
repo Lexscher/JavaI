@@ -1,3 +1,5 @@
+import java.util.scanner;
+
 public class Car {
 
     private static String[] cars = { "Volvo", "Tesla", "BMW", "Toyota", "Jeep", "Audi"};
@@ -40,7 +42,7 @@ public class Car {
         if (findCarInArray(car) == "false") 
             return car + " does not exsist in this array.";
         // Create a new array that's one index shorter than cars
-        String[] newCarArray = new String[cars.length - 1];
+        String[] newCarsArray = new String[cars.length - 1];
         // initialize a new index
         int index = 0;
         // Loop that many times
@@ -49,9 +51,15 @@ public class Car {
             if (cars[i] == car)
                 continue;
             // Assign the values to the new car array
-            newCarArray
+            newCarsArray[index] = cars[i];
+            // increment "index"
+            index++;
         }
-    }
+        // let the "cars" array point to "newCarsArray" in memory
+        cars = newCarsArray;
+        // return a string that gives the user an update
+        return car + " has been removed from the array.";
+    }   
 
     public static void main(String[] args) {
         printCars(cars);
@@ -60,5 +68,8 @@ public class Car {
         printCars(cars);
         System.out.println(findCarInArray("Jaguar"));
         System.out.println(findCarInArray("Volvo"));
+        System.out.println("-----\n     \n-----");
+        removeCarFromArray("Volvo");
+        printCars(cars);
     }
 }
