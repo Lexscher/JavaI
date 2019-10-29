@@ -7,7 +7,16 @@ public class Car {
             System.out.println(car);
     }
     // Search for car in array - Returns the car that's found, or string "Car Not Found"
+    public static String findCarInArray(String car) {
+        String foundCar = "Car Not Found: " + car;
 
+        for (String carFromArray : cars) {
+            if(carFromArray == car ) 
+                foundCar = carFromArray;
+        }
+
+        return foundCar;
+    }
     // Add car to array
     public static void addCarToArray(String newCar) {
         // Create a new cars array
@@ -30,5 +39,7 @@ public class Car {
         System.out.println("-----\n     \n-----");
         addCarToArray("Tesla Model X");
         printCars(cars);
+        System.out.println(findCarInArray("Jaguar"));
+        System.out.println(findCarInArray("Volvo"));
     }
 }
