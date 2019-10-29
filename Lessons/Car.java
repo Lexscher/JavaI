@@ -8,10 +8,12 @@ public class Car {
     }
     // Search for car in array - Returns the car that's found, or string "Car Not Found"
     public static String findCarInArray(String car) {
-        String foundCar = "Car Not Found: " + car;
-
+        String foundCar = "false";
+        // Go through all the cars
         for (String carFromArray : cars) {
-            if(carFromArray == car ) 
+            // If we've found the car we're looking for
+            if(carFromArray == car) 
+                // Assign that car to "foundCar"
                 foundCar = carFromArray;
         }
 
@@ -32,7 +34,24 @@ public class Car {
         cars = newCarsArray;
     }
 
-    // Remove car from  array (Will be made after "Search for car in array")
+    // Remove car from  array
+    public static String removeCarFromArray(String car) {
+        // Handle car not found
+        if (findCarInArray(car) == "false") 
+            return car + " does not exsist in this array.";
+        // Create a new array that's one index shorter than cars
+        String[] newCarArray = new String[cars.length - 1];
+        // initialize a new index
+        int index = 0;
+        // Loop that many times
+        for (int i = 0; i < cars.length; i++) {
+            // if the car is the one we're going to remove, skip the rest of the block.
+            if (cars[i] == car)
+                continue;
+            // Assign the values to the new car array
+            newCarArray
+        }
+    }
 
     public static void main(String[] args) {
         printCars(cars);
