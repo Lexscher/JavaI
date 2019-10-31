@@ -1,25 +1,16 @@
-public class Person {
-  private String firstName, lastName;
-
-  public Person(String first, String last) {
-    firstName = first;
-    lastName = last;
+public class Person extends Animal {
+  public Person(String initializedName, String initializedSpecies) {
+    super(initializedName, initializedSpecies);
   }
 
-  public String getFirstname() {
-    return firstName;
-  }
-
-  public String getLastname() {
-    return lastName;
-  }
-
-  public String getFullName() {
-    return firstName + " " + lastName;
+  @Override
+  public void changeName() {
+    System.out.println("You can't change your name!\nYo Mama gave you that name!");
   }
 
   public static void main(String[] args) {
-    Person human = new Person("John", "Doe");
-    System.out.println(human.getFullName() + " is a person");
+    Person human = new Person("John", "Human");
+    System.out.println(human.getName() + " is a person");
+    human.changeName();
   }
 }
